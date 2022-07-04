@@ -13,14 +13,14 @@ import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 
 const httpLink = createHttpLink({
-  uri: '',
+  uri: '/graphql',
 });
 
-const authLink = setContext((_, { navbars }) => {
+const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {
     navbars: {
-      ...navbars,
+      ...headers,
       authorization: token ? `Bearer ${token}` : '',
     },
   };
@@ -38,8 +38,8 @@ function App() {
         <>
           <Navbar />
           <Routes>
-            <Route exact path='/' component={SearchBooks} />
-            <Route exact path='/saved' component={SavedBooks} />
+            <Route exact path="/" element={SearchBooks} />
+            <Route exact path="/saved" element={SavedBooks} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Routes>
         </>
