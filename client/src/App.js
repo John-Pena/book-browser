@@ -13,7 +13,7 @@ import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 
 const httpLink = createHttpLink({
-  uri: 'googlebooks-app',
+  uri: '',
 });
 
 const authLink = setContext((_, { navbars }) => {
