@@ -23,7 +23,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    me: user
+    me: User
     users: [User]
     user(username: String!): User
     userById(_id: ID!): User
@@ -36,7 +36,7 @@ const typeDefs = gql`
     removeBook(bookId: String!): User
   }
 
-  input BookSearch {
+  input BookInput {
     bookId: String
     authors: [String]
     title: String
